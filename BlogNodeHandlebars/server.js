@@ -1,9 +1,13 @@
-var express = require('express');
 var path = require('path');
+var express = require('express');
+var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var app = express();
 var blogDB = require('./DB.json');
+
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
 var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 // app.get('/', function(req, res) {
@@ -55,7 +59,16 @@ app.post('/post', function (req, res){
 });
 
 
-app.use('/', express.static('public'));
+app.use(express.static('public'));
+
+app.get('/handle', function (req, res) {
+  console.log("Accessed my url");
+  var hey = "hey there";
+  //var person = req.params.person.toLowerCase();
+  res.render('test', {
+  title: hey
+  });
+});
 
 app.get('/blogDB', function(req, res, next){
 

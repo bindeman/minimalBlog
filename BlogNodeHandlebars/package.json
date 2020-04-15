@@ -1,0 +1,23 @@
+{
+  "name": "blognodehandlebars",
+  "version": "1.0.0",
+  "description": "minimal blog node",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "handlebars -f public/photoCardTemplate.js views/photoCard.handlebars",
+    "prestart": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "../git"
+  },
+  "author": "bindex",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.3",
+    "handlebars": "^4.7.6"
+  }
+}

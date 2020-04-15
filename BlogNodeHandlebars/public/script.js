@@ -1,5 +1,6 @@
 var blog;
 var postsReference;
+<script src="/photoCardTemplate.js"></script>
 
 var titleText = document.getElementById('title-input');
 var bodyText = document.getElementById('body-input');
@@ -40,7 +41,7 @@ function blogRefresh() {
 
 }
 
-blogRefresh();
+//blogRefresh();
 
 //new post
 
