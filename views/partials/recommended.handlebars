@@ -1,0 +1,9 @@
+  
+  <h3 class ="recommended-header">Recommended</h3>
+  <div id="post-content" class="post-recommendations">
+    {{#each relatedPosts}}
+    <div class="recommendations-child">
+      <h4><a href="/{{this.id}}">{{this.title}}</a></h4>
+      <p>{{this.body}}</p>
+    </div>
+    {{/each}}

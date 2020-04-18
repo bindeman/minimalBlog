@@ -1,6 +1,7 @@
 var blog;
 var postsReference;
 
+
 var titleText = document.getElementById('title-input');
 var bodyText = document.getElementById('body-input');
 var serverTimeout;
@@ -40,7 +41,7 @@ function blogRefresh() {
 
 }
 
-blogRefresh();
+//blogRefresh();
 
 //new post
 

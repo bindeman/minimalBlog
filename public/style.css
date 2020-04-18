@@ -2,6 +2,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #414141;
 }
 
+h4 {
+  font-size: 18px;
+}
+
 p, span {
   font-size: 17px;
   color: #A1A1A1;
@@ -10,12 +14,14 @@ p, span {
 a {
   transition: 0.3s;
   display: inline-block;
+  text-decoration: none;
+  color: #414141;
 }
 
 
 
 a:hover {
-  color: #414141;
+  color: #A1A1A1;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -64,6 +70,27 @@ body {
 .post {
   margin-top: 20px;
   margin-bottom: 50px;
+}
+
+.single-post {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-size: 28px;
+
+}
+
+.big-date {
+  font-size: 18px;
+  color: #C7C7C7;
+  margin-bottom: 20px;
+
+}
+
+.big-title {
+  //font-size: 28px;
+  color: #414141;
+  margin-bottom: -10px;
+
 }
 
 ::-webkit-input-placeholder {
@@ -200,8 +227,10 @@ textarea {
   max-width: 600px;
   min-width: 325px;
   width: 100%;
+  opacity: 0;
   padding: 25px;
-  animation: 0.3s ease-out 0.3s 1 slideInFromBottom;
+  animation: slideInFromBottom 0.25s ease-out 0.18s 1 forwards;
+  //animation: 0.3s ease-out 0.3s 1 slideInFromBottom;
   margin: auto;
   padding-top: 100px;
 }
@@ -282,6 +311,17 @@ textarea {
   }
 }
 
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0%;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 100%;
+    //transform: translateX(-500px);
+  }
+}
+
 @keyframes fadeOutHide {
 
   0% {
@@ -332,4 +372,28 @@ button: hover {
 }
 .margin {
   margin-top: 15px;
+}
+
+
+.post-recommendations {
+  display: flex;
+justify-content: space-evenly;
+align-items: center;
+opacity: 0;
+animation: slideInFromLeft 0.25s ease-out 0.18s 1 forwards;
+}
+
+.recommendations-child {
+max-width: 250px;
+min-width: 90px;
+padding: 30px;
+
+}
+
+recommended-header {
+color: #A1A1A1;
+color: grey;
+position: fixed;
+text-indent: -20px;
+
 }

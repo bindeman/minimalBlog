@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.runtime.js"></script>
+  <script src="/photoCardTemplate.js"></script>
+  <link rel="stylesheet" media="all" href="ispinner.prefixed.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+  </head>
+<body>
+<div id="navbar">
+  <h2 class="site-title" id="site-title">Blog
+  </h2>
+
+  <p class="new-post"><a id="new-post">New Post</a></p>
+</div>
+<!-- <div id="modal-background"> -->
+  <div id="new-post-modal">
+    <!-- <h1>Compose</h1> -->
+<!--     <progress value="57" max="100">
+        </progress>  -->
+        <div id="error-area">
+          <p id="error-message">You must enter text to post</p>
+    <a name="newtitle"><textarea id="title-input" name="title-input" minlength="1" placeholder="Title" maxlength="200" size="18"></textarea></a>
+   <textarea id="body-input" rows="4" cols="50" minlength="20" placeholder="Body content..." size="18">
+</textarea>
+<div>
+
+  <button class="loader"id="submit-post">
+    <div class="ispinner" id='loaderSpinner'>
+      <div class="ispinner-blade"></div>
+      <div class="ispinner-blade"></div>
+      <div class="ispinner-blade"></div>
+      <div class="ispinner-blade"></div>
+      <div class="ispinner-blade"></div>
+      <div class="ispinner-blade"></div>
+      <div class="ispinner-blade"></div>
+      <div class="ispinner-blade"></div>
+      <div class="ispinner-blade"></div>
+      <div class="ispinner-blade"></div>
+      <div class="ispinner-blade"></div>
+      <div class="ispinner-blade"></div>
+    </div>
+    Post
+  </button>
+</div>
+</div>
+
+</div>
+<!-- </div> -->
+<div class="content" id="content">
+      <h3 class ="recommended-header">Recommended</h3>
+  <div id="post-content" class="post-recommendations">
+
+    <div class="recommendations-child">
+      <h4>I'd Love to Know More</h4>
+      <p>Here is the first one hundred words that I am showing you...</p>
+    </div>
+    <div class="recommendations-child">
+      <h4>The Left Way</h4>
+      <p>Here is the first one hundred words that I am showing you...</p>
+    </div>
+<!--   <div class="post">
+  <h2> Sample Blog </h2>
+  <p>Post Content goes here, more things that need to be here are always the way that we imagine them to be.</p>
+  </div> -->
+</div>
+  <span id="numberOfPosts">Default</span>
+  <span id="lastUpdate">Default</span>
+
+
+
+
+
+
+  </div>
+
+</div>
+</body>
+    <script src="script.js"></script>
+</html>
