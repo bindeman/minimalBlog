@@ -76,6 +76,7 @@ body {
   margin-top: 20px;
   margin-bottom: 50px;
   font-size: 28px;
+  min-height: 65vh;
 
 }
 
@@ -226,7 +227,7 @@ textarea {
 .content {
   max-width: 600px;
   min-width: 325px;
-  width: 100%;
+  //width: 100%;
   opacity: 0;
   padding: 25px;
   animation: slideInFromBottom 0.25s ease-out 0.18s 1 forwards;
@@ -258,6 +259,7 @@ textarea {
   float: right;
   display: inline-block;
   height: 65px;
+  //color: grey;
   padding-right: 25px;
   margin-top: 24px;
 }
@@ -347,8 +349,6 @@ textarea {
 
 }
 
-
-
 button {
   text-align: center;
   display: in-inline;
@@ -376,9 +376,9 @@ button: hover {
 
 
 .post-recommendations {
-  display: flex;
+display: flex;
 justify-content: space-evenly;
-align-items: center;
+align-items: left;
 opacity: 0;
 animation: slideInFromLeft 0.25s ease-out 0.18s 1 forwards;
 }
@@ -387,13 +387,15 @@ animation: slideInFromLeft 0.25s ease-out 0.18s 1 forwards;
 max-width: 250px;
 min-width: 90px;
 padding: 30px;
+padding-top: 10px;
 
 }
 
-recommended-header {
-color: #A1A1A1;
-color: grey;
-position: fixed;
+.recommended-header {
+color: #C7C7C7;
+position: relative;
 text-indent: -20px;
+margin-bottom: -10px;
+
 
 }
