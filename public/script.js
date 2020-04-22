@@ -6,19 +6,6 @@ var titleText = document.getElementById('title-input');
 var bodyText = document.getElementById('body-input');
 var serverTimeout;
 
-// var xmlhttp = new XMLHttpRequest();
-//
-// xmlhttp.onreadystatechange = function() {
-//     if (this.readyState == 4 && this.status == 200) {
-//         blog = JSON.parse(this.responseText);
-//         console.log(blog)
-//         blogRefresh();
-//         postsReference = blog.posts;
-//         postsReference.forEach(printPosts);
-//     }
-// };
-// xmlhttp.open("GET", "blogDB", true);
-// xmlhttp.send();
 
 
 function blogRefresh() {
@@ -41,7 +28,6 @@ function blogRefresh() {
 
 }
 
-//blogRefresh();
 
 //new post
 
@@ -89,6 +75,47 @@ function storePhotoInDB(title, body) {
   }
 });
 }
+
+
+// function deletePost(id) {
+//   var request = new XMLHttpRequest();
+//   request.open('POST', "/delete/" + id);
+//
+//
+//   var requestBody = JSON.stringify(newPost);
+//
+//   request.setRequestHeader(
+//     'Content-Type', 'application/x-www-form-urlencoded'
+//   );
+//
+//   request.send(requestBody);
+//
+//   request.addEventListener('load', function (storePhotoInDB) {
+//   clearTimeout(serverTimeout);
+//   loadingSpinner.style.display = "none";
+//   if (event.target.status !== 200) {
+//     var message = event.target.response;
+//     triggerError(500);
+//     alert("Error storing post in database: " + message);
+//   } else {
+//     blog.posts.push({title: titleText.value, body: bodyText.value});
+//      bodyText.value = "";
+//      titleText.value = "";
+//
+//     //document.getElementById("post-content").innerHTML = " ";
+//     var contentDiv = document.getElementById("post-content");
+//     while(contentDiv.firstChild) {
+//                   contentDiv.removeChild(contentDiv.firstChild);
+//               }
+//     blogRefresh();
+//     //postsReference.forEach(printPosts);
+//     //setPostDate();
+//     //updateBlogStats();
+//
+//
+//   }
+// });
+// }
 
 function setPostDate() {
   var d = new Date();

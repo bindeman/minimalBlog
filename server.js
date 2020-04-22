@@ -4,53 +4,112 @@ var fs = require('fs');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var blogDB = require('./DB.json');
+var postsDB = require('./postDB.json');
 
 var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
+class Blog {
+
+
+  blogProperties: {
+
+  },
+
+
+
+
+
+}
+
+class blogProperties {
+
+
+
+
+
+
+}
+
+
+
+class Posts {
+  this.number
+  constructor(title, jsonFile) {
+    this.category = title;
+    this.posts = setPostsObj(jsonFile);
+    this.count = this.posts.length;
+    this.latestPost = this.posts[count-1];
+    this.lastUpdate = latestPost.prettyDate;
+
+  }
+
+  setPostsObj(jsonFile) {
+    if(jsonFile) return jsonFile //see if I can just access the file directly
+    else return var arr[];
+  }
+
+  addPost(Post) {
+      this.lastUpdate  = Post.prettyDate;
+      this.posts.push(Post);
+      this.count--;
+      this.latestPost = Post;
+  }
+
+  removePost(id) {
+    let itemIndex = null;
+    itemIndex = this.post.forEach((item, index) => {
+        if(item.id == id) {
+            //itemIndex = index;
+            return index; // break out of loop for efficiency
+        }
+    });
+
+    if(itemIndex !== null) {
+      if(this.posts[itemIndex] == this.latestPost) {
+            if(itemIndex == 0) {
+              this.latestPost = null;
+              this.lastUpdate = null;
+            }
+            else {
+              this.latestPost = this.posts[itemIndex-1];
+              this.lastUpdate = this.prettyDate;
+            }
+          }
+        this.posts.splice(itemIndex, 1);
+        this.count--;
+        return true;
+    }
+    return false;
+  }
+
+
+}
+
+
+class Post {
+  constructor(title, body) {
+    this.title = title;
+    this.body = body;
+    this.id = Date.now();
+    this.date = Post.setPrettyDate();
+    this.url = Post.setPostURL(title);
+    this.views = 0;
+    this.likes = 0;
+}
+
+  static setPostURL(title) {
+    return title.toLowerCase().replace(/[^a-zA-Z0-9]/g, '-');
+  }
+  static setPrettyDate() {
+    const d = new Date();
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    return months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+  }
+
+}
+
 var app = express();
 app.use(bodyParser.json());
-
-
-// var blog = {
-//   siteTitle: "The Good Blog",
-//   subtitle : "The Center for all your blog needs",
-//   //lastUpdate: "No Recent Update",
-//
-//   numberOfPosts : function() {
-//     return this.posts.length + " posts";
-//   },
-//
-//   lastUpdate : function() {
-//
-//     return "Last Update: " + this.posts[this.posts.length - 1].date;
-//   },
-//   posts: [{title: "Drive",
-//            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//            date: "Febraury 12, 2019",
-//            id: 0
-//             },
-//           {title: "Deez Penuts",
-//            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//            date: "November 1, 2019",
-//            id: 1
-//          },
-//           {title: "Coronavirus helps with weight Loss, experts say",
-//            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//            date: "Febraury 12, 2018",
-//            id: 2
-//          },
-//          {title: "The world needs more leaders",
-//           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//           date: "March 22, 2017",
-//           id: 3
-//         },
-//         {title: "What is Love",
-//          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//          date: "December 4, 2016",
-//          id: 4
-//           }
-//          ]
-// };
 
 function setPostDate(blogObj) {
   var d = new Date();
@@ -60,7 +119,6 @@ function setPostDate(blogObj) {
   blogObj.posts[blogObj.posts.length - 1].id = blogObj.posts.length - 1;
 
 }
-
 
 function updateDB(blogObj, newPost) {
   console.log("Running the updateDB function");

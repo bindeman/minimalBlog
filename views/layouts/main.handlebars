@@ -5,62 +5,26 @@
   <script src="/photoCardTemplate.js"></script>
   <link rel="stylesheet" media="all" href="ispinner.prefixed.css">
   <link rel="stylesheet" type="text/css" href="style.css">
-
-
-
 </head>
 
 <body>
+  <div id="site-editor">{{> siteEditor }}</div>
+  
+  <div id="editable-site">
   <div id="navbar">
     <h2 class="site-title" id="site-title"><a href="/">{{siteTitle}}</a></h2>
     <p class="new-post"><a id="new-post">New Post</a></p>
   </div>
 
-  <div id="new-post-modal">
-    <div id="error-area">
-        <p id="error-message">You must enter text to post</p>
-    
-        <a id="newtitle"><textarea id="title-input" cols="50" minlength="20" placeholder="Title"></textarea></a>
-        <a><textarea id="body-input" rows="4" cols="50" minlength="20" placeholder="Body content..."></textarea></a>
-  <div>
+  <div id="new-post-modal">{{> newPost }}
 
-  <button class="loader"id="submit-post">
-    <div class="ispinner" id='loaderSpinner'>
-      <div class="ispinner-blade"></div>
-      <div class="ispinner-blade"></div>
-      <div class="ispinner-blade"></div>
-      <div class="ispinner-blade"></div>
-      <div class="ispinner-blade"></div>
-      <div class="ispinner-blade"></div>
-      <div class="ispinner-blade"></div>
-      <div class="ispinner-blade"></div>
-      <div class="ispinner-blade"></div>
-      <div class="ispinner-blade"></div>
-      <div class="ispinner-blade"></div>
-      <div class="ispinner-blade"></div>
-    </div>
-    Post
-  </button>
-</div>
-</div>
-
-</div>
+  </div>
 <!-- </div> -->
-<div class="content" id="content">
-  <div id="post-content">
-    {{{body}}}
-<!--   <div class="post">
-  <h2> Sample Blog </h2>
-  <p>Post Content goes here, more things that need to be here are always the way that we imagine them to be.</p>
-  </div> -->
-{{!-- </div>
-  <span id="numberOfPosts">Default</span>
-  <span id="lastUpdate">Default</span>
-  </div> --}}
-
-
-
-</div>
+  <div class="content" id="content">
+    <div id="post-content">
+      {{{body}}}
+    </div>
+  </div>
 </body>
     <script src="script.js"></script>
 </html>
