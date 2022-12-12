@@ -16,7 +16,7 @@
   "author": "bindex",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-handlebars": "^4.0.3",
     "handlebars": "^4.7.6"
   }
